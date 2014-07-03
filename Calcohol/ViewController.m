@@ -30,6 +30,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 - (IBAction)textFieldDidChange:(UITextField *)sender {
     
     NSString *enteredText = sender.text;
@@ -43,18 +45,23 @@
     
     int numberOfBeers = self.beerCountSlider.value;
     NSString *beerText;
-    
-    if (numberOfBeers == 1) {
-        beerText = NSLocalizedString(@"beer", @"singular beer");
-    } else {
-        beerText = NSLocalizedString(@"beers", @"plural of beer");
-    }
+    [self setBeerText:&beerText numberOfBeers:numberOfBeers];
     
     NSString *sliderValue = [NSString stringWithFormat:@"%.lf %@", sender.value, beerText];
     self.sliderLabel.text = sliderValue;
     [self.beerPercentTextField resignFirstResponder];
     
 }
+- (void)setBeerText:(NSString **)beerText_p numberOfBeers:(int)numberOfBeers {
+    
+    
+    if (numberOfBeers == 1) {
+        *beerText_p = NSLocalizedString(@"beer", @"singular beer");
+    } else {
+        *beerText_p = NSLocalizedString(@"beers", @"plural of beer");
+    }
+}
+
 - (IBAction)buttonPressed:(UIButton *)sender {
     
     [self.beerPercentTextField resignFirstResponder];
@@ -72,12 +79,7 @@
     float numberOfWineGlassesForEquivalentAlcoholAmount = ouncesOfAlcoholTotal / ouncesOfAlcoholPerWineGlass;
     
     NSString *beerText;
-    
-    if (numberOfBeers == 1) {
-        beerText = NSLocalizedString(@"beer", @"singular beer");
-    } else {
-        beerText = NSLocalizedString(@"beers", @"plural of beer");
-    }
+    [self setBeerText:&beerText numberOfBeers:numberOfBeers];
     
     NSString *wineText;
     
