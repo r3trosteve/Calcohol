@@ -39,6 +39,7 @@
     
     // Add each view and the gesture recognizer as view's subviews
     [self.view addSubview:scrollView];
+    // Subviews
     [scrollView addSubview:textField];
     [scrollView addSubview:slider];
     [scrollView addSubview:label];
