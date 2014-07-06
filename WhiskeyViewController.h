@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
 
-@interface WhiskeyViewController : UIViewController
+@interface WhiskeyViewController : ViewController
 
 @end
