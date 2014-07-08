@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Double Digital. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "DDViewController.h"
 #import "AppDelegate.h"
 
-@interface ViewController () <UITextFieldDelegate>
+@interface DDViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) UILabel *sliderLabel;
 @property (weak, nonatomic) UIButton *calculateButton;
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation ViewController
+@implementation DDViewController
 
 - (void)loadView {
     // Allocate and initialize the all-encompassing view
@@ -111,11 +111,13 @@
     self.sliderLabel.textColor = [UIColor whiteColor];
     self.sliderLabel.textAlignment = NSTextAlignmentCenter;
     
+    self.title = NSLocalizedString(@"Wine", @"wine");
+    
     
 }
 
 - (void) viewDidLayoutSubviews {
-    [super viewWillLayoutSubviews];
+    [super viewDidLayoutSubviews];
     
     CGRect screenRect = self.view.frame;
     self.scrollView.frame = screenRect;
@@ -159,21 +161,19 @@
 - (void)sliderValueDidChange:(UISlider *)sender {
     
     int numberOfBeers = self.beerCountSlider.value;
-    NSString *beerText;
-    [self setBeerText:&beerText numberOfBeers:numberOfBeers];
+    NSString *beerText = [self setBeerText:numberOfBeers];
     
     NSString *sliderValue = [NSString stringWithFormat:@"%.lf %@", sender.value, beerText];
     self.sliderLabel.text = sliderValue;
     [self.beerPercentTextField resignFirstResponder];
     
 }
-- (void)setBeerText:(NSString **)beerText_p numberOfBeers:(int)numberOfBeers {
-    
+- (NSString *)setBeerText:(int)numberOfBeers {
     
     if (numberOfBeers == 1) {
-        *beerText_p = NSLocalizedString(@"beer", @"singular beer");
+        return NSLocalizedString(@"beer", @"singular beer");
     } else {
-        *beerText_p = NSLocalizedString(@"beers", @"plural of beer");
+        return NSLocalizedString(@"beers", @"plural of beer");
     }
 }
 
@@ -197,8 +197,7 @@
     float ouncesOfAlcoholPerWineGlass = ouncesInOneWineGlass * alcoholPercentageOfWine;
     float numberOfWineGlassesForEquivalentAlcoholAmount = ouncesOfAlcoholTotal / ouncesOfAlcoholPerWineGlass;
     
-    NSString *beerText;
-    [self setBeerText:&beerText numberOfBeers:numberOfBeers];
+    NSString *beerText = [self setBeerText:numberOfBeers];
     
     NSString *wineText;
     

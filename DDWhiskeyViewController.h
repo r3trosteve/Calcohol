@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewController.h"
+#import "DDViewController.h"
 
-@interface WhiskeyViewController : ViewController
+@interface DDWhiskeyViewController : DDViewController
 
 @end

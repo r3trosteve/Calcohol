@@ -6,14 +6,19 @@
 //  Copyright (c) 2014 Double Digital. All rights reserved.
 //
 
-#import "WhiskeyViewController.h"
+#import "DDWhiskeyViewController.h"
 
 
-@interface WhiskeyViewController ()
+@interface DDWhiskeyViewController ()
 
 @end
 
-@implementation WhiskeyViewController
+@implementation DDWhiskeyViewController
+
+- (void) viewDidLoad {
+    [super viewDidLoad];
+    self.title = NSLocalizedString(@"Whiskey", @"whiskey");
+}
 
 - (void)buttonPressed:(UIButton *)sender {
     
@@ -32,8 +37,7 @@
     float ouncesOfAlcoholPerWhiskeyGlass = ouncesInOneWhiskeyGlass * alcoholPercentageOfWhiskey;
     float numberOfWhiskeyGlassesForEquivalentAlcoholAmount = ouncesOfAlcoholTotal / ouncesOfAlcoholPerWhiskeyGlass;
     
-    NSString *beerText;
-    [self setBeerText:&beerText numberOfBeers:numberOfBeers];
+    NSString *beerText = [self setBeerText:numberOfBeers];
     
     NSString *whiskeyText;
     

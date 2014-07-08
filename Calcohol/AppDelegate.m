@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "DDViewController.h"
+#import "DDMainMenuViewController.h"
 
 @interface AppDelegate ()
             
@@ -21,8 +22,9 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    ViewController *viewController = [[ViewController alloc] init];
-    self.window.rootViewController = viewController;
+    DDMainMenuViewController *mainMenuViewController = [[DDMainMenuViewController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainMenuViewController];
+    self.window.rootViewController = navigationController;
     
     [self.window makeKeyAndVisible];
     

@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C4B50E31965C4E900FAC4BF /* WhiskeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4B50E21965C4E900FAC4BF /* WhiskeyViewController.m */; };
+		0C4B50E31965C4E900FAC4BF /* DDWhiskeyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4B50E21965C4E900FAC4BF /* DDWhiskeyViewController.m */; };
+		0C665D8D196B3E8F00D6B2DF /* DDMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C665D8C196B3E8F00D6B2DF /* DDMainMenuViewController.m */; };
 		0CF80D001965911F0059264D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF80CFF1965911F0059264D /* main.m */; };
 		0CF80D031965911F0059264D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF80D021965911F0059264D /* AppDelegate.m */; };
-		0CF80D061965911F0059264D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF80D051965911F0059264D /* ViewController.m */; };
+		0CF80D061965911F0059264D /* DDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF80D051965911F0059264D /* DDViewController.m */; };
 		0CF80D0B1965911F0059264D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CF80D0A1965911F0059264D /* Images.xcassets */; };
 		0CF80D171965911F0059264D /* CalcoholTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF80D161965911F0059264D /* CalcoholTests.m */; };
 /* End PBXBuildFile section */
@@ -26,15 +27,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C4B50E11965C4E900FAC4BF /* WhiskeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WhiskeyViewController.h; path = ../WhiskeyViewController.h; sourceTree = "<group>"; };
-		0C4B50E21965C4E900FAC4BF /* WhiskeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WhiskeyViewController.m; path = ../WhiskeyViewController.m; sourceTree = "<group>"; };
+		0C4B50E11965C4E900FAC4BF /* DDWhiskeyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDWhiskeyViewController.h; path = ../DDWhiskeyViewController.h; sourceTree = "<group>"; };
+		0C4B50E21965C4E900FAC4BF /* DDWhiskeyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDWhiskeyViewController.m; path = ../DDWhiskeyViewController.m; sourceTree = "<group>"; };
+		0C665D8B196B3E8F00D6B2DF /* DDMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMainMenuViewController.h; sourceTree = "<group>"; };
+		0C665D8C196B3E8F00D6B2DF /* DDMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMainMenuViewController.m; sourceTree = "<group>"; };
 		0CF80CFA1965911F0059264D /* Calcohol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calcohol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CF80CFE1965911F0059264D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0CF80CFF1965911F0059264D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0CF80D011965911F0059264D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0CF80D021965911F0059264D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0CF80D041965911F0059264D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0CF80D051965911F0059264D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0CF80D041965911F0059264D /* DDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDViewController.h; sourceTree = "<group>"; };
+		0CF80D051965911F0059264D /* DDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDViewController.m; sourceTree = "<group>"; };
 		0CF80D0A1965911F0059264D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0CF80D101965911F0059264D /* CalcoholTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalcoholTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CF80D151965911F0059264D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,10 +85,12 @@
 			children = (
 				0CF80D011965911F0059264D /* AppDelegate.h */,
 				0CF80D021965911F0059264D /* AppDelegate.m */,
-				0CF80D041965911F0059264D /* ViewController.h */,
-				0CF80D051965911F0059264D /* ViewController.m */,
-				0C4B50E11965C4E900FAC4BF /* WhiskeyViewController.h */,
-				0C4B50E21965C4E900FAC4BF /* WhiskeyViewController.m */,
+				0C665D8B196B3E8F00D6B2DF /* DDMainMenuViewController.h */,
+				0C665D8C196B3E8F00D6B2DF /* DDMainMenuViewController.m */,
+				0CF80D041965911F0059264D /* DDViewController.h */,
+				0CF80D051965911F0059264D /* DDViewController.m */,
+				0C4B50E11965C4E900FAC4BF /* DDWhiskeyViewController.h */,
+				0C4B50E21965C4E900FAC4BF /* DDWhiskeyViewController.m */,
 				0CF80D0A1965911F0059264D /* Images.xcassets */,
 				0CF80CFD1965911F0059264D /* Supporting Files */,
 			);
@@ -216,8 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CF80D061965911F0059264D /* ViewController.m in Sources */,
-				0C4B50E31965C4E900FAC4BF /* WhiskeyViewController.m in Sources */,
+				0C665D8D196B3E8F00D6B2DF /* DDMainMenuViewController.m in Sources */,
+				0CF80D061965911F0059264D /* DDViewController.m in Sources */,
+				0C4B50E31965C4E900FAC4BF /* DDWhiskeyViewController.m in Sources */,
 				0CF80D031965911F0059264D /* AppDelegate.m in Sources */,
 				0CF80D001965911F0059264D /* main.m in Sources */,
 			);
