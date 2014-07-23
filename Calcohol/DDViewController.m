@@ -139,8 +139,13 @@
     self.sliderLabel.frame = CGRectMake(padding, bottomOfSlider + (padding / 2), itemWidth, itemHeight);
     self.resultLabel.frame = CGRectMake(padding, bottomOfSlider + padding, itemWidth, itemHeight * 4);
     
-    CGFloat bottomOfLabel = CGRectGetMaxY(self.resultLabel.frame);
-    self.calculateButton.frame = CGRectMake(0, bottomOfLabel + padding, viewWidth, itemHeight * 1.5);
+    CGRect buttonFrame = CGRectZero;
+    buttonFrame.origin.x = 0;
+    buttonFrame.origin.y = CGRectGetMaxY(screenRect) - itemHeight - CGRectGetMaxY(self.navigationController.navigationBar.frame);
+    buttonFrame.size.width = viewWidth;
+    buttonFrame.size.height = itemHeight;
+    
+    self.calculateButton.frame = buttonFrame;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -160,21 +165,19 @@
 }
 - (void)sliderValueDidChange:(UISlider *)sender {
     
-    int numberOfBeers = self.beerCountSlider.value;
+    int numberOfBeers = roundf(self.beerCountSlider.value);
     NSString *beerText = [self setBeerText:numberOfBeers];
     
-    NSString *sliderValue = [NSString stringWithFormat:@"%.lf %@", sender.value, beerText];
-    self.sliderLabel.text = sliderValue;
+    self.sliderLabel.text = beerText;
     [self.beerPercentTextField resignFirstResponder];
     
 }
 - (NSString *)setBeerText:(int)numberOfBeers {
-    
-    if (numberOfBeers == 1) {
-        return NSLocalizedString(@"beer", @"singular beer");
-    } else {
-        return NSLocalizedString(@"beers", @"plural of beer");
+    NSMutableString *beers = [NSMutableString stringWithString:@""];
+    for (int i = 0; i < numberOfBeers; i++) {
+        [beers appendString:@"🍺"];
     }
+    return beers;
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle{
