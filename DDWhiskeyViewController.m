@@ -15,9 +15,23 @@
 
 @implementation DDWhiskeyViewController
 
+- (instancetype) init {
+    self = [super init];
+    if (self) {
+        self.title = NSLocalizedString(@"Whiskey", nil);
+    }
+    return self;
+}
+
 - (void) viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"Whiskey", @"whiskey");
+    
+    
+    
+    // Since we don't have icons, let's move the title to the middle of the tab bar
+    // [self.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, -18)];
+    
+    self.view.backgroundColor = [UIColor colorWithRed:0.992 green:0.992 blue:0.588 alpha:1]; /*#fdfd96*/
 }
 
 - (void)buttonPressed:(UIButton *)sender {
@@ -47,7 +61,7 @@
         whiskeyText = NSLocalizedString(@"shots", @"plural of shot");
     }
     
-    NSString *resultText = [NSString stringWithFormat:NSLocalizedString(@"%d %@ contains as much alcohol as %.1f %@ of whiskey.", nil), numberOfBeers, beerText, numberOfWhiskeyGlassesForEquivalentAlcoholAmount, whiskeyText];
+    NSString *resultText = [NSString stringWithFormat:NSLocalizedString(@"%@ contains as much alcohol as %.1f %@ of whiskey.", nil), beerText, numberOfWhiskeyGlassesForEquivalentAlcoholAmount, whiskeyText];
     self.resultLabel.text = resultText;
     
     

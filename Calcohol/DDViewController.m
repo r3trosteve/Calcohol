@@ -22,7 +22,21 @@
 
 @implementation DDViewController
 
+- (instancetype) init {
+    self = [super init];
+    
+    if (self) {
+        self.title = NSLocalizedString(@"Wine", @"wine");
+        
+        // Since we don't have icons, let's move the title to the middle of the tab bar
+        [self.tabBarItem setTitlePositionAdjustment:UIOffsetMake(0, -18)];
+    }
+    
+    return self;
+}
+
 - (void)loadView {
+    
     // Allocate and initialize the all-encompassing view
     self.view = [[UIView alloc] init];
     
@@ -61,6 +75,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    
+    
+    
+
     // Set our primary view's background color to lightGrayColor
     self.view.backgroundColor = [UIColor colorWithRed:0.204 green:0.286 blue:0.369 alpha:1];
     
@@ -104,7 +123,7 @@
     
     // Gets rid of the maximum number of lines on the label
     self.resultLabel.numberOfLines = 0;
-    self.resultLabel.textColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor colorWithRed:0.741 green:0.925 blue:0.714 alpha:1]; /*#bdecb6*/
     
     // set the slider label style
     self.sliderLabel.text = @"0";
@@ -115,6 +134,7 @@
     
     
 }
+
 
 - (void) viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
@@ -141,7 +161,7 @@
     
     CGRect buttonFrame = CGRectZero;
     buttonFrame.origin.x = 0;
-    buttonFrame.origin.y = CGRectGetMaxY(screenRect) - itemHeight - CGRectGetMaxY(self.navigationController.navigationBar.frame);
+    buttonFrame.origin.y = CGRectGetMaxY(screenRect) - (itemHeight * 3) - CGRectGetMaxY(self.navigationController.navigationBar.frame);
     buttonFrame.size.width = viewWidth;
     buttonFrame.size.height = itemHeight;
     
@@ -170,6 +190,7 @@
     
     self.sliderLabel.text = beerText;
     [self.beerPercentTextField resignFirstResponder];
+    [self.tabBarItem setBadgeValue:[NSString stringWithFormat:@"%d", (int) sender.value]];
     
 }
 - (NSString *)setBeerText:(int)numberOfBeers {
@@ -214,7 +235,7 @@
     if (alcoholPercentageOfBeer == 0) {
         resultText = @"Please input the Alcohol Percentage";
     } else {
-        resultText = [NSString stringWithFormat:NSLocalizedString(@"%d %@ contains as much alcohol as %.lf %@ of wine.", nil), numberOfBeers, beerText, numberOfWineGlassesForEquivalentAlcoholAmount, wineText];
+        resultText = [NSString stringWithFormat:NSLocalizedString(@"%@ contains as much alcohol as %.lf %@ of wine.", nil), beerText, numberOfWineGlassesForEquivalentAlcoholAmount, wineText];
     }
     self.resultLabel.text = resultText;
     

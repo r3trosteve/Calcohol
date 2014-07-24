@@ -8,9 +8,11 @@
 
 #import "AppDelegate.h"
 #import "DDViewController.h"
-#import "DDMainMenuViewController.h"
+#import "DDWhiskeyViewController.h"
 
-@interface AppDelegate ()
+
+
+@interface AppDelegate () <UITabBarControllerDelegate>
             
 
 @end
@@ -22,13 +24,22 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    DDMainMenuViewController *mainMenuViewController = [[DDMainMenuViewController alloc] init];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainMenuViewController];
-    self.window.rootViewController = navigationController;
+    DDViewController *wineVC = [[DDViewController alloc] init];
+    DDWhiskeyViewController *whiskeyVC = [[DDWhiskeyViewController alloc] init];
+    UITabBarController *tabBarVC = [[UITabBarController alloc] init];
+    tabBarVC.viewControllers = @[wineVC, whiskeyVC];
+    
+    tabBarVC.delegate = self;
+    self.window.rootViewController = tabBarVC;
+    
     
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    NSLog(@"New View Controller is: %@", viewController.tabBarItem.title);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
